@@ -4,6 +4,11 @@ Aplicação desenvolvida na formação Kafka da Alura
 
 - [Curso de Kafka: Produtores, Consumidores e streams](https://cursos.alura.com.br/course/kafka-introducao-a-streams-em-microservicos)
 
+## Tecnologias
+
+- Kafka
+- Java
+
 ## Anotações
 
 **Start kafka server**
