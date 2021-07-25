@@ -17,7 +17,7 @@ public class NewOrderMain {
 
         producer.send(record, (data, exception) -> {
             if (exception != null) {
-
+                return;
             }
             System.out.println(data.topic() + ":::partition " + data.partition() + "/ offset: " + data.offset() + "/ timestamp: " + data.timestamp());
         }).get();
