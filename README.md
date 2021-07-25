@@ -11,16 +11,16 @@ Aplicação desenvolvida na formação Kafka da Alura
 
 ## Módulos
 
-### [Commom Kafka](./commom-kafka)
-- Arquivos base para utilizar o Kafka
-### [Service Email](./service-email)
-- Serviço que lê o tópico de e-mail
-### [Service Fraud Detector](./service-fraud-detector)
-- Serviço que lê o tópico de new-order
-### [Service Log](./service-log)
-- Serviço que gera os logs lendo todos os tópicos gerados para ecommerce
-### [Service New Order](./service-new-order)
-- Serviço de criação de tópicos (new-order e e-mail)
+- [Commom Kafka](./commom-kafka)
+    - Arquivos base para utilizar o Kafka
+- [Service Email](./service-email)
+    - Serviço que lê o tópico de e-mail
+- [Service Fraud Detector](./service-fraud-detector)
+    - Serviço que lê o tópico de new-order
+- [Service Log](./service-log)
+    - Serviço que gera os logs lendo todos os tópicos gerados para ecommerce
+- [Service New Order](./service-new-order)
+    - Serviço de criação de tópicos (new-order e e-mail)
 
 ## Anotações
 
