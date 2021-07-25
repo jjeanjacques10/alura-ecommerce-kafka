@@ -1,4 +1,4 @@
-# Kafka Alura
+# Ecommerce Kafka - Alura
 
 Aplicação desenvolvida na formação Kafka da Alura
 
