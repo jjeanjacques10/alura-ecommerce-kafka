@@ -24,7 +24,9 @@ Aplicação desenvolvida na formação Kafka da Alura
 - [Service New Order](./service-new-order)
     - Serviço de criação de tópicos (new-order e e-mail)
 - [Service Users](./service-users)
-    - Cria um usuário no banco de dados
+    - Serviço para criação de um usuário usuário no banco de dados (SQLite)
+- [Service HTTP Ecommerce](./service-http-ecommerce)
+    - Serviço o envio de requisições HTTP
 
 ## Anotações
 
