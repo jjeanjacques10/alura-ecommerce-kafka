@@ -11,6 +11,7 @@
         <module name="service-frauddetector" />
         <module name="service-new-order" />
         <module name="service-email" />
+        <module name="service-users" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

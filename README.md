@@ -3,11 +3,13 @@
 Aplicação desenvolvida na formação Kafka da Alura
 
 - [Curso de Kafka: Produtores, Consumidores e streams](https://cursos.alura.com.br/course/kafka-introducao-a-streams-em-microservicos)
+- [Kafka: Fast delegate, evolução e cluster de brokers](https://cursos.alura.com.br/course/kafka-cluster-de-microservicos)
 
 ## Tecnologias
 
 - Kafka
 - Java
+- SQLite
 
 ## Módulos
 
@@ -21,6 +23,8 @@ Aplicação desenvolvida na formação Kafka da Alura
     - Serviço que gera os logs lendo todos os tópicos gerados para ecommerce
 - [Service New Order](./service-new-order)
     - Serviço de criação de tópicos (new-order e e-mail)
+- [Service Users](./service-users)
+    - Cria um usuário no banco de dados
 
 ## Anotações
 

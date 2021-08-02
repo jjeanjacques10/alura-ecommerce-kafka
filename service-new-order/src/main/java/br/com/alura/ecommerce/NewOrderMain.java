@@ -9,16 +9,17 @@ public class NewOrderMain {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         try (var orderDispatcher = new KafkaDispatcher<Order>()) {
             try (var emailDispatcher = new KafkaDispatcher<String>()) {
+                var email = Math.random() + "@email.com";
                 for (int i = 0; i < 10; i++) {
-                    var userId = UUID.randomUUID().toString();
+
                     var orderId = UUID.randomUUID().toString();
                     var amount = new BigDecimal(Math.random() * 5000 + 1);
 
-                    var order = new Order(userId, orderId, amount);
-                    orderDispatcher.send("ECOMMERCE_NEW_ORDER", userId, order);
+                    var order = new Order(orderId, amount, email);
+                    orderDispatcher.send("ECOMMERCE_NEW_ORDER", email, order);
 
-                    var email = "Thank you for your order! We are processing your order";
-                    emailDispatcher.send("ECOMMERCE_SEND_EMAIL", userId, email);
+                    var emailCode = "Thank you for your order! We are processing your order";
+                    emailDispatcher.send("ECOMMERCE_SEND_EMAIL", email, emailCode);
                 }
             }
         }
