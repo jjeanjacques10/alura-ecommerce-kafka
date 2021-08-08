@@ -4,6 +4,7 @@ Aplicação desenvolvida na formação Kafka da Alura
 
 - [Curso de Kafka: Produtores, Consumidores e streams](https://cursos.alura.com.br/course/kafka-introducao-a-streams-em-microservicos)
 - [Kafka: Fast delegate, evolução e cluster de brokers](https://cursos.alura.com.br/course/kafka-cluster-de-microservicos)
+- [Kafka: Batches, correlation ids e dead letters](https://cursos.alura.com.br/course/kafka-batches-correlation-ids-e-dead-letters)
 
 ## Tecnologias
 
@@ -27,6 +28,8 @@ Aplicação desenvolvida na formação Kafka da Alura
     - Serviço para criação de um usuário usuário no banco de dados (SQLite)
 - [Service HTTP Ecommerce](./service-http-ecommerce)
     - Serviço o envio de requisições HTTP
+- [Service Reading Report](./service-reading-report)
+    - Serviço que faz o envio de relatórios para todos os usuários
 
 ## Anotações
 
