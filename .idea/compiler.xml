@@ -11,13 +11,10 @@
         <module name="service-new-order" />
         <module name="service-reading-report" />
         <module name="commom-kafka" />
-        <module name="service-frauddetector" />
+        <module name="service-fraud-detector" />
         <module name="service-email" />
         <module name="service-users" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="service-fraud-detector" target="13" />
-    </bytecodeTargetLevel>
   </component>
 </project>
