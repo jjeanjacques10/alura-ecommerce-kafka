@@ -1,5 +1,9 @@
-package br.com.alura.ecommerce;
+package br.com.alura.ecommerce.consumer;
 
+import br.com.alura.ecommerce.CorrelationId;
+import br.com.alura.ecommerce.Message;
+import br.com.alura.ecommerce.dispatcher.GsonSerializer;
+import br.com.alura.ecommerce.dispatcher.KafkaDispatcher;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -17,12 +21,12 @@ public class KafkaService<T> implements Closeable {
     private final KafkaConsumer<String, Message<T>> consumer;
     private final ConsumerFunction parse;
 
-    KafkaService(String groupId, String topic, ConsumerFunction<T> parse, Map<String, String> properties) {
+    public KafkaService(String groupId, String topic, ConsumerFunction<T> parse, Map<String, String> properties) {
         this(groupId, parse, properties);
         this.consumer.subscribe(Collections.singletonList(topic));
     }
 
-    KafkaService(String groupId, Pattern topic, ConsumerFunction<T> parse, Map<String, String> properties) {
+    public KafkaService(String groupId, Pattern topic, ConsumerFunction<T> parse, Map<String, String> properties) {
         this(groupId, parse, properties);
         this.consumer.subscribe(topic);
     }
@@ -32,7 +36,7 @@ public class KafkaService<T> implements Closeable {
         this.consumer = new KafkaConsumer<>(getProperties(groupId, properties));
     }
 
-    void run() throws ExecutionException, InterruptedException {
+    public void run() throws ExecutionException, InterruptedException {
         try (var deadLetter = new KafkaDispatcher()) {
             while (true) {
                 var records = consumer.poll(Duration.ofMillis(100));
@@ -45,7 +49,7 @@ public class KafkaService<T> implements Closeable {
                             e.printStackTrace();
                             var message = record.value();
                             deadLetter.send("ECOMMERCE_DEADLETTER", message.getId().toString(),
-                                    message.getId().continueWith(new CorrelationId("DeadLetter")),
+                                    message.getId().continueWith("DeadLetter"),
                                     new GsonSerializer().serialize("", message));
                         }
                     }

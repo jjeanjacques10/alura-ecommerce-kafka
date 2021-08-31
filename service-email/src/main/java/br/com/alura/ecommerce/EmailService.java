@@ -1,5 +1,6 @@
 package br.com.alura.ecommerce;
 
+import br.com.alura.ecommerce.consumer.KafkaService;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -22,7 +23,7 @@ public class EmailService {
 
     private void parse(ConsumerRecord<String, Message<String>> record) {
         System.out.println("----------------------------------------");
-        System.out.println("Sending email, checking for fraud");
+        System.out.println("Sending email");
         System.out.println(record.key());
         System.out.println(record.value());
         System.out.println(record.partition());

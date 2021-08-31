@@ -1,5 +1,7 @@
 package br.com.alura.ecommerce;
 
+import br.com.alura.ecommerce.consumer.KafkaService;
+import br.com.alura.ecommerce.dispatcher.KafkaDispatcher;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 import java.sql.Connection;
@@ -47,7 +49,7 @@ public class BatchSendMessageService {
 
         for (User user : getAllUsers()) {
             userDispatcher.sendAsync(message.getPayload(), user.getUuid(),
-                    message.getId().continueWith(new CorrelationId(BatchSendMessageService.class.getSimpleName())),
+                    message.getId().continueWith(BatchSendMessageService.class.getSimpleName()),
                     user);
             System.out.println("Sent to a user " + user);
         }

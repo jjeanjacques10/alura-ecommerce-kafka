@@ -1,5 +1,7 @@
 package br.com.alura.ecommerce;
 
+import br.com.alura.ecommerce.consumer.KafkaService;
+import br.com.alura.ecommerce.dispatcher.KafkaDispatcher;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 import java.math.BigDecimal;
@@ -39,12 +41,12 @@ public class FraudDetectorService {
             // pretending that the fraud happens when the amount is >= 4500
             System.out.println("Order is a fraud!!");
             orderKafkaDispatcher.send("ECOMMERCE_ORDER_REJECTED", order.getEmail(),
-                    message.getId().continueWith(new CorrelationId(FraudDetectorService.class.getSimpleName())),
+                    message.getId().continueWith(FraudDetectorService.class.getSimpleName()),
                     order);
         } else {
             System.out.println("Approved: " + order);
             orderKafkaDispatcher.send("ECOMMERCE_ORDER_APPROVED", order.getEmail(),
-                    message.getId().continueWith(new CorrelationId(FraudDetectorService.class.getSimpleName())),
+                    message.getId().continueWith(FraudDetectorService.class.getSimpleName()),
                     order);
         }
 

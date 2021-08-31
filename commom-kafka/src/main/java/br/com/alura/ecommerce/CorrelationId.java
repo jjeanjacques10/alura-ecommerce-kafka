@@ -17,7 +17,7 @@ public class CorrelationId {
                 '}';
     }
 
-    public CorrelationId continueWith(CorrelationId title) {
+    public CorrelationId continueWith(String title) {
         return new CorrelationId(id + "-" + title);
     }
 }
