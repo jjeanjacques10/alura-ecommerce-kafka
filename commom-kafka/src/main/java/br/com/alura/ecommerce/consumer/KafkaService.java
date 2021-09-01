@@ -1,6 +1,5 @@
 package br.com.alura.ecommerce.consumer;
 
-import br.com.alura.ecommerce.CorrelationId;
 import br.com.alura.ecommerce.Message;
 import br.com.alura.ecommerce.dispatcher.GsonSerializer;
 import br.com.alura.ecommerce.dispatcher.KafkaDispatcher;
@@ -37,11 +36,11 @@ public class KafkaService<T> implements Closeable {
     }
 
     public void run() throws ExecutionException, InterruptedException {
-        try (var deadLetter = new KafkaDispatcher()) {
+        try (var deadLetter = new KafkaDispatcher<>()) {
             while (true) {
                 var records = consumer.poll(Duration.ofMillis(100));
                 if (!records.isEmpty()) {
-                    System.out.println("Founded " + records.count() + " records");
+                    System.out.println("Encontrei " + records.count() + " registros");
                     for (var record : records) {
                         try {
                             parse.consume(record);
@@ -56,6 +55,7 @@ public class KafkaService<T> implements Closeable {
                 }
             }
         }
+
     }
 
     private Properties getProperties(String groupId, Map<String, String> overrideProperties) {
@@ -66,8 +66,8 @@ public class KafkaService<T> implements Closeable {
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         properties.setProperty(ConsumerConfig.CLIENT_ID_CONFIG, UUID.randomUUID().toString());
         properties.setProperty(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "1");
+        properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         properties.putAll(overrideProperties);
-
         return properties;
     }
 

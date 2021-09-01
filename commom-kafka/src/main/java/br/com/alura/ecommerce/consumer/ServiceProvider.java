@@ -1,11 +1,7 @@
 package br.com.alura.ecommerce.consumer;
 
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.common.serialization.StringDeserializer;
-
 import java.util.Map;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 
 public class ServiceProvider<T> implements Callable<Void> {
 
@@ -15,7 +11,7 @@ public class ServiceProvider<T> implements Callable<Void> {
         this.factory = factory;
     }
 
-    public Void call() throws ExecutionException, InterruptedException {
+    public Void call() throws Exception {
         var myService = factory.create();
         try (var service = new KafkaService(myService.getConsumerGroup(),
                 myService.getTopic(),

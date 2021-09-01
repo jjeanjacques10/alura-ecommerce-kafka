@@ -13,10 +13,6 @@ public class Order {
         this.email = email;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
     @Override
     public String toString() {
         return "Order{" +
@@ -28,5 +24,13 @@ public class Order {
 
     public String getEmail() {
         return email;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public String getOrderId() {
+        return orderId;
     }
 }
