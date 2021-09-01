@@ -5,6 +5,7 @@ Aplicação desenvolvida na formação Kafka da Alura
 - [Curso de Kafka: Produtores, Consumidores e streams](https://cursos.alura.com.br/course/kafka-introducao-a-streams-em-microservicos)
 - [Kafka: Fast delegate, evolução e cluster de brokers](https://cursos.alura.com.br/course/kafka-cluster-de-microservicos)
 - [Kafka: Batches, correlation ids e dead letters](https://cursos.alura.com.br/course/kafka-batches-correlation-ids-e-dead-letters)
+- [Kafka: Idempotência e garantias](https://cursos.alura.com.br/course/kafka-idempotencia-e-garantias)
 
 ## Tecnologias
 
