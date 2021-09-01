@@ -15,11 +15,15 @@ Aplicação desenvolvida na formação Kafka da Alura
 ## Módulos
 
 - [Commom Kafka](./commom-kafka)
-    - Arquivos base para utilizar o Kafka
+    - Módulo base para utilizar o Kafka
+- [Commom Database](./commom-database)
+    - Módulo para utilizar o banco de dados SQLite
 - [Service Email](./service-email)
     - Serviço que lê o tópico de e-mail
+- [Service Email New Order](./service-email)
+  - Serviço que lê o tópico de e-mail e faz o direcionamento para o [Service Email](./service-email)
 - [Service Fraud Detector](./service-fraud-detector)
-    - Serviço que lê o tópico de new-order
+    - Serviço que lê o tópico de new-order e verifica se o pedido é uma fraude
 - [Service Log](./service-log)
     - Serviço que gera os logs lendo todos os tópicos gerados para ecommerce
 - [Service New Order](./service-new-order)
@@ -27,9 +31,15 @@ Aplicação desenvolvida na formação Kafka da Alura
 - [Service Users](./service-users)
     - Serviço para criação de um usuário usuário no banco de dados (SQLite)
 - [Service HTTP Ecommerce](./service-http-ecommerce)
-    - Serviço o envio de requisições HTTP
+    - Serviço o envio de Orders por requisições HTTP
 - [Service Reading Report](./service-reading-report)
     - Serviço que faz o envio de relatórios para todos os usuários
+
+#### Exemplo de chamada no Serviço HTTP
+
+```
+http://localhost:8080/new?email=jjean.jacques10@gmail.com&amount=1999&uuid=f76ec663-acdc-4ba3-8c5f-f827e006abdf
+```
 
 ## Anotações
 
@@ -72,3 +82,6 @@ If you want to get from the first message to last, use: --from-beginning
 ```bash
 ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER --from-beginning
 ```
+
+---
+Developed by Jean Jacques
